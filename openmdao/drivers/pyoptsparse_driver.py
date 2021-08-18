@@ -478,6 +478,8 @@ class pyOptSparseDriver(Driver):
 
         if self._exc_info:
             raise self._exc_info
+ 
+        if comm.rank!=0: return False #mio
 
         # Print results
         if self.options['print_results']:
